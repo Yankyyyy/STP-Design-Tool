@@ -11,6 +11,8 @@ export const calculateDesign = (inputs) => {
   const minorLossesM = 0.1 * staticHeadM;
   const TotalManometricHeadM = parseFloat(staticHeadM) + parseFloat(minorLossesM);
   const pumpCapacityKW = (9810 * averageFlowM3PerSec * TotalManometricHeadM) / ( efficiency / 100) / 1000
+  const requiredpumpCapacityKW = Math.ceil(pumpCapacityKW)
+  const standbyPumpCapacity = 0.5 * parseFloat(requiredpumpCapacityKW)
 
   return {
     averageFlowMLD,
@@ -28,6 +30,8 @@ export const calculateDesign = (inputs) => {
     minorLossesM,
     TotalManometricHeadM,
     efficiency,
-    pumpCapacityKW: pumpCapacityKW.toFixed(2)
+    pumpCapacityKW: pumpCapacityKW.toFixed(2),
+    requiredpumpCapacityKW,
+    standbyPumpCapacity: standbyPumpCapacity
   };
 };
