@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
 
-function App() {
+import React, { useState } from 'react';
+import WetWellForm from './components/WetWellForm';
+import DesignOutput from './components/DesignOutput';
+import { calculateDesign } from './utils/CalculateDesign';
+
+const App = () => {
+  const [outputs, setOutputs] = useState(null);
+
+  const handleCalculate = (inputs) => {
+    const calculatedOutputs = calculateDesign(inputs);
+    setOutputs(calculatedOutputs);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Wet Well Design Calculator</h1>
+      <WetWellForm onCalculate={handleCalculate} />
+      {outputs && <DesignOutput outputs={outputs} />}
     </div>
   );
-}
+};
 
 export default App;
