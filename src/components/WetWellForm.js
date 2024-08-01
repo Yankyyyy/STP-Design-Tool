@@ -76,12 +76,12 @@ const WetWellForm = ({ onCalculate }) => {
     <form onSubmit={handleSubmit}>
       <div>
         <label>Average Flow (MLD): </label>
-        <input type="number" name="averageFlowMLD" value={inputs.averageFlowMLD} onChange={handleChange} />
+        <input type="number" name="averageFlowMLD" style={{ textAlign: 'center' }} value={inputs.averageFlowMLD} onChange={handleChange} />
         {errors.averageFlowMLD && <span style={{ color: 'red' }}>{errors.averageFlowMLD}</span>}
       </div>
       <div>
         <label>Peak Factor: </label>
-        <select name="peakFactor" value={inputs.peakFactor} onChange={handleDropdownChange}>
+        <select name="peakFactor" style={{ textAlign: 'center' }} value={inputs.peakFactor} onChange={handleDropdownChange}>
           <option value="">Select Peak Factor</option>
           {PeakFactor.map((factor) => (
             <option key={factor.id} value={factor.value}>
@@ -93,7 +93,7 @@ const WetWellForm = ({ onCalculate }) => {
       </div>
       <div>
         <label>Efficiency (%): </label>
-        <select name="efficiency" value={inputs.efficiency} onChange={handleDropdownChange}>
+        <select name="efficiency" style={{ textAlign: 'center' }} value={inputs.efficiency} onChange={handleDropdownChange}>
           <option value="">Select Efficiency</option>
           {Efficiency.map((factor) => (
             <option key={factor.id} value={factor.value}>
@@ -105,27 +105,27 @@ const WetWellForm = ({ onCalculate }) => {
       </div>
       <div>
         <label>Time for one pump cycle (min): </label>
-        <input type="number" name="timeForOnePumpCycle" value={inputs.timeForOnePumpCycle} onChange={handleChange} />
+        <input type="number" style={{ textAlign: 'center' }} name="timeForOnePumpCycle" value={inputs.timeForOnePumpCycle} onChange={handleChange} />
         {errors.timeForOnePumpCycle && <span style={{ color: 'red' }}>{errors.timeForOnePumpCycle}</span>}
       </div>
       <div>
         <label>Minimum Depth Below Invert (m): </label>
-        <input type="number" name="minDepthBelowInvertM" value={inputs.minDepthBelowInvertM} onChange={handleChange} />
+        <input type="number" style={{ textAlign: 'center' }} name="minDepthBelowInvertM" value={inputs.minDepthBelowInvertM} onChange={handleChange} />
         {errors.minDepthBelowInvertM && <span style={{ color: 'red' }}>{errors.minDepthBelowInvertM}</span>}
       </div>
       <div>
         <label>Diameter of Invert Pipe (mm): </label>
-        <input type="number" name="diameterOfInvertPipeM" value={inputs.diameterOfInvertPipeM} onChange={handleChange} />
+        <input type="number" style={{ textAlign: 'center' }} name="diameterOfInvertPipeM" value={inputs.diameterOfInvertPipeM} onChange={handleChange} />
         {errors.diameterOfInvertPipeM && <span style={{ color: 'red' }}>{errors.diameterOfInvertPipeM}</span>}
       </div>
       <div>
         <label>Suction Head (m): </label>
-        <input type="number" name="suctionHeadM" value={inputs.suctionHeadM} onChange={handleChange} />
+        <input type="number" style={{ textAlign: 'center' }} name="suctionHeadM" value={inputs.suctionHeadM} onChange={handleChange} />
         {errors.suctionHeadM && <span style={{ color: 'red' }}>{errors.suctionHeadM}</span>}
       </div>
       <div>
         <label>Delivery Head (m): </label>
-        <input type="number" name="deliveryHeadM" value={inputs.deliveryHeadM} onChange={handleChange} />
+        <input type="number" style={{ textAlign: 'center' }} name="deliveryHeadM" value={inputs.deliveryHeadM} onChange={handleChange} />
         {errors.deliveryHeadM && <span style={{ color: 'red' }}>{errors.deliveryHeadM}</span>}
       </div>
       <button type="submit">Calculate</button>
