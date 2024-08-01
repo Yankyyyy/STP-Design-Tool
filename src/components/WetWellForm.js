@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PeakFactor from './PeakFactor';
+import Efficiency from './PumpEfficiency';
 
 const WetWellForm = ({ onCalculate }) => {
   const [inputs, setInputs] = useState({
@@ -15,6 +17,14 @@ const WetWellForm = ({ onCalculate }) => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+
+  const handleDropdownChange = (e) => {
     const { name, value } = e.target;
     setInputs({
       ...inputs,
@@ -71,12 +81,26 @@ const WetWellForm = ({ onCalculate }) => {
       </div>
       <div>
         <label>Peak Factor: </label>
-        <input type="number" name="peakFactor" value={inputs.peakFactor} onChange={handleChange} />
-        {errors.peakFactor && <span style={{ color: 'red' }}>{errors.peakFactor}</span>}
+        <select name="peakFactor" value={inputs.peakFactor} onChange={handleDropdownChange}>
+          <option value="">Select Peak Factor</option>
+          {PeakFactor.map((factor) => (
+            <option key={factor.id} value={factor.value}>
+              {factor.population} - {factor.value}
+            </option>
+          ))}
+        </select>
+        {errors.efficiency && <span style={{ color: 'red' }}>{errors.efficiency}</span>}
       </div>
       <div>
         <label>Efficiency (%): </label>
-        <input type="number" name="efficiency" value={inputs.efficiency} onChange={handleChange} />
+        <select name="efficiency" value={inputs.efficiency} onChange={handleDropdownChange}>
+          <option value="">Select Efficiency</option>
+          {Efficiency.map((factor) => (
+            <option key={factor.id} value={factor.value}>
+              {factor.pump} - {factor.value}%
+            </option>
+          ))}
+        </select>
         {errors.efficiency && <span style={{ color: 'red' }}>{errors.efficiency}</span>}
       </div>
       <div>
