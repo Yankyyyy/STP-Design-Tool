@@ -60,9 +60,9 @@ const WetWellForm = ({ onCalculate }) => {
             label="Minimum Depth Below Invert (m)"
             name="minDepthBelowInvertM"
             type="number"
-            step="0.01"
             value={inputs.minDepthBelowInvertM}
             onChange={handleChange}
+            InputProps={{ inputProps: { step: 0.01 } }}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -72,9 +72,9 @@ const WetWellForm = ({ onCalculate }) => {
             label="Efficiency (%)"
             name="efficiency"
             type="number"
-            step="0.01"
             value={inputs.efficiency}
             onChange={handleChange}
+            InputProps={{ inputProps: { step: 0.01 } }}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -84,9 +84,9 @@ const WetWellForm = ({ onCalculate }) => {
             label="Static Head (m)"
             name="staticHeadM"
             type="number"
-            step="0.01"
             value={inputs.staticHeadM}
             onChange={handleChange}
+            InputProps={{ inputProps: { step: 0.01 } }}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -96,9 +96,9 @@ const WetWellForm = ({ onCalculate }) => {
             label="Diameter of Invert Pipe (mm)"
             name="diameterOfInvertPipeM"
             type="number"
-            step="0.01"
             value={inputs.diameterOfInvertPipeM}
             onChange={handleChange}
+            InputProps={{ inputProps: { step: 0.01 } }}
           />
         </Grid>
       </Grid>
