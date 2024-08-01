@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid, Box, Typography } from '@mui/material';
+import { TextField, Button, Grid, Box, Typography, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
+import Efficiency from './PumpEfficiency'; // Adjust the path according to your file structure
+import PeakFactor from './PeakFactor'; // Adjust the path according to your file structure
 
 const WetWellForm = ({ onCalculate }) => {
   const [inputs, setInputs] = useState({
@@ -27,12 +29,6 @@ const WetWellForm = ({ onCalculate }) => {
     const errors = {};
     if (!inputs.averageFlowMLD || inputs.averageFlowMLD <= 0) {
       errors.averageFlowMLD = 'Average Flow must be greater than 0';
-    }
-    if (!inputs.peakFactor || inputs.peakFactor <= 0) {
-      errors.peakFactor = 'Peak Factor must be greater than 0';
-    }
-    if (!inputs.efficiency || inputs.efficiency <= 0 || inputs.efficiency > 100) {
-      errors.efficiency = 'Efficiency must be between 0 and 100';
     }
     if (!inputs.timeForOnePumpCycle || inputs.timeForOnePumpCycle <= 0) {
       errors.timeForOnePumpCycle = 'Time for one pump cycle must be greater than 0';
@@ -83,17 +79,21 @@ const WetWellForm = ({ onCalculate }) => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            fullWidth
-            label="Peak Factor"
-            name="peakFactor"
-            type="number"
-            value={inputs.peakFactor}
-            onChange={handleChange}
-            error={!!errors.peakFactor}
-            helperText={errors.peakFactor}
-          />
+          <FormControl fullWidth required>
+            <InputLabel>Peak Factor</InputLabel>
+            <Select
+              label="Peak Factor"
+              name="peakFactor"
+              value={inputs.peakFactor}
+              onChange={handleChange}
+            >
+              {PeakFactor.map((factor) => (
+                <MenuItem key={factor.id} value={factor.value}>
+                  {factor.population} - {factor.value}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -110,18 +110,21 @@ const WetWellForm = ({ onCalculate }) => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            fullWidth
-            label="Efficiency (%)"
-            name="efficiency"
-            type="number"
-            value={inputs.efficiency}
-            onChange={handleChange}
-            error={!!errors.efficiency}
-            helperText={errors.efficiency}
-            InputProps={{ inputProps: { step: 0.01 } }}
-          />
+          <FormControl fullWidth required>
+            <InputLabel>Efficiency</InputLabel>
+            <Select
+              label="Efficiency"
+              name="efficiency"
+              value={inputs.efficiency}
+              onChange={handleChange}
+            >
+              {Efficiency.map((eff) => (
+                <MenuItem key={eff.id} value={eff.value}>
+                  {eff.pump} - {eff.value}%
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
