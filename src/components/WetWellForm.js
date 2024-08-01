@@ -6,9 +6,11 @@ const WetWellForm = ({ onCalculate }) => {
     averageFlowMLD: '',
     peakFactor: '',
     efficiency: '',
+    timeForOnePumpCycle: '',
     minDepthBelowInvertM: '',
     diameterOfInvertPipeM: '',
-    staticHeadM: ''
+    suctionHeadM: '',
+    deliveryHeadM: ''
   });
 
   const handleChange = (e) => {
@@ -39,6 +41,10 @@ const WetWellForm = ({ onCalculate }) => {
         <input type="number" name="efficiency" value={inputs.efficiency} onChange={handleChange} />
       </div>
       <div>
+        <label>Time for one pump cycle (min): </label>
+        <input type="number" name="timeForOnePumpCycle" value={inputs.timeForOnePumpCycle} onChange={handleChange} />
+      </div>
+      <div>
         <label>Minimum Depth Below Invert (m): </label>
         <input type="number" name="minDepthBelowInvertM" value={inputs.minDepthBelowInvertM} onChange={handleChange} />
       </div>
@@ -47,8 +53,12 @@ const WetWellForm = ({ onCalculate }) => {
         <input type="number" name="diameterOfInvertPipeM" value={inputs.diameterOfInvertPipeM} onChange={handleChange} />
       </div>
       <div>
-        <label>Static Head (m): </label>
-        <input type="number" name="staticHeadM" value={inputs.staticHeadM} onChange={handleChange} />
+        <label>Suction Head (m): </label>
+        <input type="number" name="suctionHeadM" value={inputs.suctionHeadM} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Delivery Head (m): </label>
+        <input type="number" name="deliveryHeadM" value={inputs.deliveryHeadM} onChange={handleChange} />
       </div>
       <button type="submit">Calculate</button>
     </form>
