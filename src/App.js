@@ -35,7 +35,7 @@ const App = () => {
             borderRadius: 2,
             textAlign: 'center',
             width: '100%',
-            maxWidth: 600,
+            maxWidth: 800,
             backgroundColor: blue[50], // Light blue background for the Paper
             border: `1px solid ${blue[300]}`, // Light blue border
           }}

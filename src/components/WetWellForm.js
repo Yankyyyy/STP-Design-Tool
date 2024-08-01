@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button, Grid, Box, Typography, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
-import Efficiency from './PumpEfficiency'; // Adjust the path according to your file structure
-import PeakFactor from './PeakFactor'; // Adjust the path according to your file structure
+import Efficiency from '../cpheeo/PumpEfficiency';
+import PeakFactor from '../cpheeo/PeakFactor';
 
 const WetWellForm = ({ onCalculate }) => {
   const [inputs, setInputs] = useState({
@@ -76,6 +76,11 @@ const WetWellForm = ({ onCalculate }) => {
             onChange={handleChange}
             error={!!errors.averageFlowMLD}
             helperText={errors.averageFlowMLD}
+            sx={{
+              '& .MuiInputBase-input': {
+                textAlign: 'center' // Aligns text within the input
+              }
+            }}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -106,6 +111,11 @@ const WetWellForm = ({ onCalculate }) => {
             onChange={handleChange}
             error={!!errors.minDepthBelowInvertM}
             helperText={errors.minDepthBelowInvertM}
+            sx={{
+              '& .MuiInputBase-input': {
+                textAlign: 'center' // Aligns text within the input
+              }
+            }}
             InputProps={{ inputProps: { step: 0.01 } }}
           />
         </Grid>
@@ -137,6 +147,11 @@ const WetWellForm = ({ onCalculate }) => {
             onChange={handleChange}
             error={!!errors.timeForOnePumpCycle}
             helperText={errors.timeForOnePumpCycle}
+            sx={{
+              '& .MuiInputBase-input': {
+                textAlign: 'center' // Aligns text within the input
+              }
+            }}
             InputProps={{ inputProps: { step: 0.01 } }}
           />
         </Grid>
@@ -151,6 +166,11 @@ const WetWellForm = ({ onCalculate }) => {
             onChange={handleChange}
             error={!!errors.suctionHeadM}
             helperText={errors.suctionHeadM}
+            sx={{
+              '& .MuiInputBase-input': {
+                textAlign: 'center' // Aligns text within the input
+              }
+            }}
             InputProps={{ inputProps: { step: 0.01 } }}
           />
         </Grid>
@@ -165,6 +185,11 @@ const WetWellForm = ({ onCalculate }) => {
             onChange={handleChange}
             error={!!errors.deliveryHeadM}
             helperText={errors.deliveryHeadM}
+            sx={{
+              '& .MuiInputBase-input': {
+                textAlign: 'center' // Aligns text within the input
+              }
+            }}
             InputProps={{ inputProps: { step: 0.01 } }}
           />
         </Grid>
@@ -179,6 +204,11 @@ const WetWellForm = ({ onCalculate }) => {
             onChange={handleChange}
             error={!!errors.diameterOfInvertPipeM}
             helperText={errors.diameterOfInvertPipeM}
+            sx={{
+              '& .MuiInputBase-input': {
+                textAlign: 'center' // Aligns text within the input
+              }
+            }}
             InputProps={{ inputProps: { step: 0.01 } }}
           />
         </Grid>
