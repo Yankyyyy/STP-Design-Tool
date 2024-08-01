@@ -1,5 +1,5 @@
 // src/utils/calculateDesign.js
-export const calculateDesign = (inputs) => {
+export const calculateWetWellDesign = (inputs) => {
   const { averageFlowMLD, peakFactor, efficiency, timeForOnePumpCycle, minDepthBelowInvertM, diameterOfInvertPipeM, suctionHeadM, deliveryHeadM } = inputs;
   const averageFlowM3PerDay = averageFlowMLD * 1000;
   const averageFlowM3PerSec = averageFlowM3PerDay / (24 * 60 * 60);

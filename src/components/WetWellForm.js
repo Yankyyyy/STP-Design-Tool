@@ -89,7 +89,7 @@ const WetWellForm = ({ onCalculate }) => {
             >
               {PeakFactor.map((factor) => (
                 <MenuItem key={factor.id} value={factor.value}>
-                  {factor.population} - {factor.value}
+                  {factor.population} : {factor.value}
                 </MenuItem>
               ))}
             </Select>
@@ -120,7 +120,7 @@ const WetWellForm = ({ onCalculate }) => {
             >
               {Efficiency.map((eff) => (
                 <MenuItem key={eff.id} value={eff.value}>
-                  {eff.pump} - {eff.value}%
+                  {eff.pump} : {eff.value}%
                 </MenuItem>
               ))}
             </Select>

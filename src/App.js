@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import WetWellForm from './components/WetWellForm';
 import DesignOutput from './components/DesignOutput';
-import { calculateDesign } from './utils/CalculateDesign';
+import { calculateWetWellDesign } from './utils/CalculateDesign';
 import { Container, CssBaseline, Typography, Paper, Box } from '@mui/material';
 import { blue } from '@mui/material/colors';
 
@@ -11,7 +11,7 @@ const App = () => {
   const [outputs, setOutputs] = useState(null);
 
   const handleCalculate = (inputs) => {
-    const calculatedOutputs = calculateDesign(inputs);
+    const calculatedOutputs = calculateWetWellDesign(inputs);
     setOutputs(calculatedOutputs);
   };
 
