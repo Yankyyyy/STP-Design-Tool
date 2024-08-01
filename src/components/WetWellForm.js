@@ -7,9 +7,11 @@ const WetWellForm = ({ onCalculate }) => {
     averageFlowMLD: '',
     peakFactor: '',
     efficiency: '',
+    timeForOnePumpCycle: '',
     minDepthBelowInvertM: '',
     diameterOfInvertPipeM: '',
-    staticHeadM: ''
+    suctionHeadM: '',
+    deliveryHeadM: ''
   });
 
   const handleChange = (e) => {
@@ -81,10 +83,34 @@ const WetWellForm = ({ onCalculate }) => {
           <TextField
             required
             fullWidth
-            label="Static Head (m)"
-            name="staticHeadM"
+            label="Time for one pump cycle (min)"
+            name="timeForOnePumpCycle"
             type="number"
-            value={inputs.staticHeadM}
+            value={inputs.timeForOnePumpCycle}
+            onChange={handleChange}
+            InputProps={{ inputProps: { step: 0.01 } }}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            fullWidth
+            label="Suction Head (m)"
+            name="suctionHeadM"
+            type="number"
+            value={inputs.suctionHeadM}
+            onChange={handleChange}
+            InputProps={{ inputProps: { step: 0.01 } }}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            fullWidth
+            label="Delivery Head (m)"
+            name="deliveryHeadM"
+            type="number"
+            value={inputs.deliveryHeadM}
             onChange={handleChange}
             InputProps={{ inputProps: { step: 0.01 } }}
           />
