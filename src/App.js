@@ -3,13 +3,13 @@
 import React, { useState } from 'react';
 import WetWellForm from './components/WetWellForm';
 import DesignOutput from './components/DesignOutput';
-import { calculateDesign } from './utils/CalculateDesign';
+import { calculateWetWellDesign } from './utils/CalculateDesign';
 
 const App = () => {
   const [outputs, setOutputs] = useState(null);
 
   const handleCalculate = (inputs) => {
-    const calculatedOutputs = calculateDesign(inputs);
+    const calculatedOutputs = calculateWetWellDesign(inputs);
     setOutputs(calculatedOutputs);
   };
 
