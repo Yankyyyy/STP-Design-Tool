@@ -1,24 +1,19 @@
-// App.js
-
-import React, { useState } from 'react';
-import WetWellForm from './components/WetWellForm';
-import DesignOutput from './components/DesignOutput';
-import { calculateDesign } from './utils/CalculateDesign';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/Home';
+import WetWell from './pages/WetWell';
+import NavBar from './components/NavBar';
 
 const App = () => {
-  const [outputs, setOutputs] = useState(null);
-
-  const handleCalculate = (inputs) => {
-    const calculatedOutputs = calculateDesign(inputs);
-    setOutputs(calculatedOutputs);
-  };
-
   return (
-    <div className="App">
-      <h1>Wet Well Design Calculator</h1>
-      <WetWellForm onCalculate={handleCalculate} />
-      {outputs && <DesignOutput outputs={outputs} />}
-    </div>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/wetwell" element={<WetWell />} />
+      </Routes>
+    </Router>
   );
 };
 
