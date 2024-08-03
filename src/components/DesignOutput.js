@@ -3,7 +3,7 @@ import React from 'react';
 import { Typography, Button, Grid, Paper, Box } from '@mui/material';
 import ExportPDF from '../utils/ExportPDF'
 
-const DesignOutput = ({ outputs }) => {
+const WetWellDesignOutput = ({ outputs }) => {
 
   const handleClick = () => {
     ExportPDF('divToPrint')
@@ -15,7 +15,7 @@ const DesignOutput = ({ outputs }) => {
       <div id="divToPrint">
         <Box sx={{ mt: 4, mb: 4 }}>
           <Typography variant="h6" align="center" gutterBottom>
-            <b>Design Outputs</b>
+            <b>Wet Well Design Outputs</b>
           </Typography>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
@@ -70,7 +70,7 @@ const DesignOutput = ({ outputs }) => {
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Minimum depth below invert of sewer (m³/day): <b>{outputs.minDepthBelowInvertM}</b>
+                Minimum depth below invert of sewer (m): <b>{outputs.minDepthBelowInvertM}</b>
                 </Typography>
               </Paper>
             </Grid>
@@ -91,7 +91,7 @@ const DesignOutput = ({ outputs }) => {
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Diameter of invert pipe (mm): <b>{outputs.diameterOfInvertPipeM}</b>
+                Diameter of invert pipe (mm): <b>{outputs.diameterOfInvertPipeMM}</b>
                 </Typography>
               </Paper>
             </Grid>
@@ -140,7 +140,7 @@ const DesignOutput = ({ outputs }) => {
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Required Standby Pump Capacity (KW): <b>{outputs.standbyPumpCapacity}</b>
+                Required Standby Pump Capacity (KW): <b>{outputs.standbyPumpCapacityKW}</b>
                 </Typography>
               </Paper>
             </Grid>
@@ -156,4 +156,4 @@ const DesignOutput = ({ outputs }) => {
   );
 };
 
-export default DesignOutput;
+export default WetWellDesignOutput;
