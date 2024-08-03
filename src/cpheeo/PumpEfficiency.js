@@ -1,4 +1,3 @@
-//src/components/PumpEfficiency.js
 //cpheeo manual table value for efficiency
 
 const Efficiency = [

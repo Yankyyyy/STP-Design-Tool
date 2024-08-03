@@ -1,4 +1,3 @@
-// src/components/PeakFactor.js
 //cpheeo manual table value for peak factor
 
 const PeakFactor = [

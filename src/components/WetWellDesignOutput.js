@@ -1,4 +1,3 @@
-// src/components/DesignOutput.js
 import React from 'react';
 import { Typography, Button, Grid, Paper, Box } from '@mui/material';
 import ExportPDF from '../utils/ExportPDF'

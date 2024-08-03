@@ -78,7 +78,7 @@ const WetWellForm = ({ onCalculate }) => {
             helperText={errors.averageFlowMLD}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
           />
@@ -113,7 +113,7 @@ const WetWellForm = ({ onCalculate }) => {
             helperText={errors.minDepthBelowInvertM}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
             InputProps={{ inputProps: { step: 0.01 } }}
@@ -149,7 +149,7 @@ const WetWellForm = ({ onCalculate }) => {
             helperText={errors.timeForOnePumpCycle}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
             InputProps={{ inputProps: { step: 0.01 } }}
@@ -168,7 +168,7 @@ const WetWellForm = ({ onCalculate }) => {
             helperText={errors.suctionHeadM}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
             InputProps={{ inputProps: { step: 0.01 } }}
@@ -187,7 +187,7 @@ const WetWellForm = ({ onCalculate }) => {
             helperText={errors.deliveryHeadM}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
             InputProps={{ inputProps: { step: 0.01 } }}
@@ -206,7 +206,7 @@ const WetWellForm = ({ onCalculate }) => {
             helperText={errors.diameterOfInvertPipeMM}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
             InputProps={{ inputProps: { step: 0.01 } }}
