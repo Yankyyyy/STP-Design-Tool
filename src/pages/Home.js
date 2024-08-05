@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../attachments/HomePagePic.png';
 import { Container, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Box } from '@mui/material';
 
 const Home = () => {
@@ -10,6 +11,10 @@ const Home = () => {
       <Typography paragraph>
       Welcome to the Design of Sewage Treatment Plants (STPs) for Small and Medium Towns. This platform provides comprehensive guidance and design calculations on the implementation and optimization of wastewater treatment technologies tailored for small to medium-sized urban areas.
       </Typography>
+
+      <Box sx={{ textAlign: 'center' }}>
+        <img src={logo} alt="Ministry of Housing and Urban Affairs Home Page" style={{ width: '100%', height: 'auto' }} />
+      </Box>
 
       <Box my={4} sx={{ textAlign: 'justify' }}>
         <Typography variant="h5" gutterBottom align="center">
