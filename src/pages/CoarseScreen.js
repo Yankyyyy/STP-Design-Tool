@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import WetWellForm from '../components/WetWellForm';
-import WetWellDesignOutput from '../components/WetWellDesignOutput';
-import { calculateWetWellDesign } from '../utils/WetWellCalculateDesign';
+import CoarseScreenForm from '../components/CoarseScreenForm';
+import CoarseScreenDesignOutput from '../components/CoarseScreenDesignOutput';
+import { calculateCoarseScreenDesign } from '../utils/CoarseScreenCalculateDesign';
 import { Container, CssBaseline, Typography, Paper, Box } from '@mui/material';
 import { blue } from '@mui/material/colors';
 
-const WetWell = () => {
+const CoarseScreen = () => {
   const [outputs, setOutputs] = useState(null);
 
   const handleCalculate = (inputs) => {
-    const calculatedOutputs = calculateWetWellDesign(inputs);
+    const calculatedOutputs = calculateCoarseScreenDesign(inputs);
     setOutputs(calculatedOutputs);
   };
 
@@ -42,14 +42,14 @@ const WetWell = () => {
             variant="h4"
             gutterBottom
           >
-            <b>Wet Well Design Calculator</b>
+            <b>Coarse Screen Design Calculator</b>
           </Typography>
-          <WetWellForm onCalculate={handleCalculate} />
-          {outputs && <WetWellDesignOutput outputs={outputs} />}
+          <CoarseScreenForm onCalculate={handleCalculate} />
+          {outputs && <CoarseScreenDesignOutput outputs={outputs} />}
         </Paper>
       </Box>
     </Container>
   );
 };
 
-export default WetWell;
+export default CoarseScreen;

@@ -1,6 +1,5 @@
-// src/utils/calculateDesign.js
 export const calculateWetWellDesign = (inputs) => {
-  const { averageFlowMLD, peakFactor, efficiency, timeForOnePumpCycle, minDepthBelowInvertM, diameterOfInvertPipeM, suctionHeadM, deliveryHeadM } = inputs;
+  const { averageFlowMLD, peakFactor, efficiency, timeForOnePumpCycle, minDepthBelowInvertM, diameterOfInvertPipeMM, suctionHeadM, deliveryHeadM } = inputs;
   const averageFlowM3PerDay = averageFlowMLD * 1000;
   const averageFlowM3PerSec = averageFlowM3PerDay / (24 * 60 * 60);
   const averageFlowM3PerMin = averageFlowM3PerSec * 60
@@ -13,26 +12,26 @@ export const calculateWetWellDesign = (inputs) => {
   const TotalManometricHeadM = parseFloat(staticHeadM) + parseFloat(minorLossesM);
   const pumpCapacityKW = (9810 * averageFlowM3PerSec * TotalManometricHeadM) / ( efficiency / 100) / 1000
   const requiredpumpCapacityKW = Math.ceil(pumpCapacityKW)
-  const standbyPumpCapacity = 0.5 * parseFloat(requiredpumpCapacityKW)
+  const standbyPumpCapacityKW = 0.5 * parseFloat(requiredpumpCapacityKW)
 
   return {
     averageFlowMLD,
     averageFlowM3PerDay,
-    averageFlowM3PerSec: averageFlowM3PerSec.toFixed(2),
-    averageFlowM3PerMin: averageFlowM3PerMin.toFixed(2),
+    averageFlowM3PerSec: averageFlowM3PerSec.toFixed(3),
+    averageFlowM3PerMin: averageFlowM3PerMin.toFixed(3),
     peakFactor,
-    peakFlowM3PerMin: peakFlowM3PerMin.toFixed(2),
-    volumeOfWetWellM3: volumeOfWetWellM3.toFixed(2),
+    peakFlowM3PerMin: peakFlowM3PerMin.toFixed(3),
+    volumeOfWetWellM3: volumeOfWetWellM3.toFixed(3),
     minDepthBelowInvertM,
-    requiredAreaOfWetWellM2: requiredAreaOfWetWellM2.toFixed(2),
-    computedWellDiameterM: computedWellDiameterM.toFixed(2),
-    diameterOfInvertPipeM,
+    requiredAreaOfWetWellM2: requiredAreaOfWetWellM2.toFixed(3),
+    computedWellDiameterM: computedWellDiameterM.toFixed(3),
+    diameterOfInvertPipeMM,
     staticHeadM,
     minorLossesM,
     TotalManometricHeadM,
     efficiency,
-    pumpCapacityKW: pumpCapacityKW.toFixed(2),
+    pumpCapacityKW: pumpCapacityKW.toFixed(3),
     requiredpumpCapacityKW,
-    standbyPumpCapacity: standbyPumpCapacity
+    standbyPumpCapacityKW
   };
 };

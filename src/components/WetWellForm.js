@@ -10,7 +10,7 @@ const WetWellForm = ({ onCalculate }) => {
     efficiency: '',
     timeForOnePumpCycle: '',
     minDepthBelowInvertM: '',
-    diameterOfInvertPipeM: '',
+    diameterOfInvertPipeMM: '',
     suctionHeadM: '',
     deliveryHeadM: ''
   });
@@ -36,8 +36,8 @@ const WetWellForm = ({ onCalculate }) => {
     if (!inputs.minDepthBelowInvertM || inputs.minDepthBelowInvertM <= 0) {
       errors.minDepthBelowInvertM = 'Minimum Depth Below Invert must be greater than 0';
     }
-    if (!inputs.diameterOfInvertPipeM || inputs.diameterOfInvertPipeM <= 0) {
-      errors.diameterOfInvertPipeM = 'Diameter of Invert Pipe must be greater than 0';
+    if (!inputs.diameterOfInvertPipeMM || inputs.diameterOfInvertPipeMM <= 0) {
+      errors.diameterOfInvertPipeMM = 'Diameter of Invert Pipe must be greater than 0';
     }
     if (!inputs.suctionHeadM || inputs.suctionHeadM <= 0) {
       errors.suctionHeadM = 'Suction Head must be greater than 0';
@@ -78,7 +78,7 @@ const WetWellForm = ({ onCalculate }) => {
             helperText={errors.averageFlowMLD}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
           />
@@ -113,7 +113,7 @@ const WetWellForm = ({ onCalculate }) => {
             helperText={errors.minDepthBelowInvertM}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
             InputProps={{ inputProps: { step: 0.01 } }}
@@ -149,7 +149,7 @@ const WetWellForm = ({ onCalculate }) => {
             helperText={errors.timeForOnePumpCycle}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
             InputProps={{ inputProps: { step: 0.01 } }}
@@ -168,7 +168,7 @@ const WetWellForm = ({ onCalculate }) => {
             helperText={errors.suctionHeadM}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
             InputProps={{ inputProps: { step: 0.01 } }}
@@ -187,7 +187,7 @@ const WetWellForm = ({ onCalculate }) => {
             helperText={errors.deliveryHeadM}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
             InputProps={{ inputProps: { step: 0.01 } }}
@@ -198,15 +198,15 @@ const WetWellForm = ({ onCalculate }) => {
             required
             fullWidth
             label="Diameter of Invert Pipe (mm)"
-            name="diameterOfInvertPipeM"
+            name="diameterOfInvertPipeMM"
             type="number"
-            value={inputs.diameterOfInvertPipeM}
+            value={inputs.diameterOfInvertPipeMM}
             onChange={handleChange}
-            error={!!errors.diameterOfInvertPipeM}
-            helperText={errors.diameterOfInvertPipeM}
+            error={!!errors.diameterOfInvertPipeMM}
+            helperText={errors.diameterOfInvertPipeMM}
             sx={{
               '& .MuiInputBase-input': {
-                textAlign: 'center' // Aligns text within the input
+                textAlign: 'center'
               }
             }}
             InputProps={{ inputProps: { step: 0.01 } }}
