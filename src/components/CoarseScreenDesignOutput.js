@@ -8,6 +8,14 @@ const CoarseScreenDesignOutput = ({ outputs }) => {
     ExportPDF('divToPrint')
   };
   
+  const getColor = (condition) => {
+    return condition ? 'green' : 'red';
+  };
+
+  const approachVelocityCondition = outputs.approachVelocityInTheChannelMPerSec > 0.3;
+  const computedVelocityCondition = outputs.computedVelocityThroughTheScreenMPerSec >= 0.6 && outputs.computedVelocityThroughTheScreenMPerSec <= 1.2;
+  const headLossNoCloggingCondition = outputs.headLossWithoutCloggingM < 0.15;
+  const headLossWithCloggingCondition = outputs.headLossWithHalfCloggingM < 0.3;
 
   return (
     <div>
@@ -181,27 +189,6 @@ const CoarseScreenDesignOutput = ({ outputs }) => {
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Approach velocity in Channel u/s of Screen (m/sec): <b>{outputs.approachVelocityInTheChannelMPerSec}</b>
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
-                Computed velocity through Screen (m/sec): <b>{outputs.computedVelocityThroughTheScreenMPerSec}</b>
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
-                Head Loss No Clogging (m): <b>{outputs.headLossWithoutCloggingM}</b>
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
                 Velocity when 50% clogging (m/sec): <b>{outputs.velocityForHalfCloggedScreenMPerSec}</b>
                 </Typography>
               </Paper>
@@ -209,7 +196,40 @@ const CoarseScreenDesignOutput = ({ outputs }) => {
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Head Loss when 50% clogging (m): <b>{outputs.headLossWithHalfCloggingM}</b>
+                  Approach velocity in Channel u/s of Screen (m/sec): <b>{outputs.approachVelocityInTheChannelMPerSec}</b>
+                </Typography>
+                <Typography variant="body2" sx={{ color: getColor(approachVelocityCondition) }}>
+                  {approachVelocityCondition ? 'Approach velocity in the channel on the u/s side of the screen > 0.3 m/s. Hence OK.' : 'Approach velocity in the channel on the u/s side of the screen ≤ 0.3 m/s. Hence not OK.'}
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="body2">
+                  Computed velocity through Screen (m/sec): <b>{outputs.computedVelocityThroughTheScreenMPerSec}</b>
+                </Typography>
+                <Typography variant="body2" sx={{ color: getColor(computedVelocityCondition) }}>
+                  {computedVelocityCondition ? 'The velocity through the screen lies between 0.6 to 1.2 m. Hence OK.' : 'The velocity through the screen does not lie between 0.6 to 1.2 m. Hence not OK.'}
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="body2">
+                  Head Loss No Clogging (m): <b>{outputs.headLossWithoutCloggingM}</b>
+                </Typography>
+                <Typography variant="body2" sx={{ color: getColor(headLossNoCloggingCondition) }}>
+                  {headLossNoCloggingCondition ? 'The head loss No clogging < 0.15 m. Hence OK.' : 'The head loss No clogging ≥ 0.15 m. Hence not OK.'}
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="body2">
+                  Head Loss when 50% clogging (m): <b>{outputs.headLossWithHalfCloggingM}</b>
+                </Typography>
+                <Typography variant="body2" sx={{ color: getColor(headLossWithCloggingCondition) }}>
+                  {headLossWithCloggingCondition ? 'The Head Loss when 50% clogging < 0.3 m. Hence OK.' : 'The Head Loss when 50% clogging ≥ 0.3 m. Hence not OK.'}
                 </Typography>
               </Paper>
             </Grid>
