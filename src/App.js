@@ -6,6 +6,7 @@ import WetWell from './pages/WetWell';
 import CoarseScreen from './pages/CoarseScreen';
 import NavBar from './components/NavBar';
 
+
 const App = () => {
   return (
     <Router>

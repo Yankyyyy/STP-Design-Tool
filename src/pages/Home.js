@@ -8,7 +8,7 @@ const Home = () => {
         Design of STPs for Small and Medium Towns
       </Typography>
       <Typography paragraph>
-      Welcome to the Design of Sewage Treatment Plants (STPs) for Small and Medium Towns. This platform provides comprehensive guidance and design calculations on the implementation and optimization of wastewater treatment technologies tailored for small to medium-sized urban areas.
+      Welcome to the Design of Sewage Treatment Plants (STPs) for Small and Medium Towns. This web application platform provides comprehensive guidance and design calculations on the implementation and optimization of wastewater treatment technologies tailored for small to medium-sized urban areas.
       </Typography>
 
       <Box my={4} sx={{ textAlign: 'justify' }}>

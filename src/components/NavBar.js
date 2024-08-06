@@ -7,13 +7,13 @@ import BlurLinear from '@mui/icons-material/BlurLinear';
 
 const NavBar = () => {
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#3f51b5' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#3f51b5', mb: 2 }}>
       <Toolbar>
         <IconButton edge="start" color="inherit" aria-label="home" component={Link} to="/">
           <HomeIcon />
         </IconButton>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          STP Design Calculator
+          Home
         </Typography>
         <Button color="inherit" component={Link} to="/wetwell" startIcon={<WaterIcon />}>
           Wet Well
