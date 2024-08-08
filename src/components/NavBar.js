@@ -21,6 +21,9 @@ const NavBar = () => {
         <Button color="inherit" component={Link} to="/coarsescreen" startIcon={<BlurLinear />}>
           Coarse Screen
         </Button>
+        <Button color="inherit" component={Link} to="/mediumscreen" startIcon={<BlurLinear />}>
+          Medium Screen
+        </Button>
       </Toolbar>
     </AppBar>
   );
