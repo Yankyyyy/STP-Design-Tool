@@ -31,7 +31,7 @@ const MediumScreenForm = ({ onCalculate }) => {
       errors.averageFlowMLD = 'Average Flow must be greater than 0';
     }
     if (!inputs.clearOpeningBetweenAdjacentBarsMM || inputs.clearOpeningBetweenAdjacentBarsMM <= 0) {
-      errors.learOpeningBetweenAdjacentBarsMM = 'Clear opening between adjacent bars of screen must be greater than 0';
+      errors.clearOpeningBetweenAdjacentBarsMM = 'Clear opening between adjacent bars of screen must be greater than 0';
     }
     if (!inputs.barsThicknessOfScreenMM || inputs.barsThicknessOfScreenMM <= 0) {
       errors.barsThicknessOfScreenMM = 'Bar thickness of screen must be greater than 0';

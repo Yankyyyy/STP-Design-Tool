@@ -22,7 +22,7 @@ const MediumScreenDesignOutput = ({ outputs }) => {
       <div id="divToPrint">
         <Box sx={{ mt: 4, mb: 4 }}>
           <Typography variant="h6" align="center" gutterBottom>
-            <b>Coarse Screen Design Outputs</b>
+            <b>Medium Screen Design Outputs</b>
           </Typography>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
