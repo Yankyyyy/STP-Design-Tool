@@ -24,6 +24,9 @@ const NavBar = () => {
         <Button color="inherit" component={Link} to="/mediumscreen" startIcon={<BlurLinear />}>
           Medium Screen
         </Button>
+        <Button color="inherit" component={Link} to="/gritchamber" startIcon={<BlurLinear />}>
+          Grit Chamber
+        </Button>
       </Toolbar>
     </AppBar>
   );

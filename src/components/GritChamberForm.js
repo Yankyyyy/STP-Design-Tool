@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import { TextField, Button, Grid, Box, Typography, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import PeakFactor from '../cpheeo/PeakFactor';
 
-const CoarseScreenForm = ({ onCalculate }) => {
+const GritChamberForm = ({ onCalculate }) => {
   const [inputs, setInputs] = useState({
     averageFlowMLD: '',
     peakFactor: '',
-    minFlowFactor: '',
-    coarseScreenOpeningMM: '',
-    depthOfWaterInScreenM: '',
-    velocityThroughScreenMPerSec: '',
-    angleOfInclinationWithTheHorizontalDeg: '',
+    desiredEfficiency: '',
+    settlingVelocityMPerSec: '',
+    basinPerformanceIndex: '',
+    noOfGritChambersProposed: '',
+    widthOfTheTankM: '',
+    depthOfTheTankM: '',
+    particleSizeForCriticalDisplacementVelocityMM: '',
     freeBoardM: '',
-    widthOfEachBarMM: '',
-    widthOfEachSideWallMM: ''
+    provisionOfSpaceForGritM: ''
   });
 
   const [errors, setErrors] = useState({});
@@ -31,29 +32,32 @@ const CoarseScreenForm = ({ onCalculate }) => {
     if (inputs.averageFlowMLD && inputs.averageFlowMLD <= 0) {
       errors.averageFlowMLD = 'Average Flow must be greater than 0';
     }
-    if (inputs.minFlowFactor && inputs.minFlowFactor <= 0) {
-      errors.minFlowFactor = 'Minimum Flow Factor must be greater than 0';
+    if (inputs.desiredEfficiency && inputs.desiredEfficiency <= 0) {
+      errors.desiredEfficiency = 'Desired efficiency of removal of grit particle must be greater than 0';
     }
-    if (inputs.coarseScreenOpeningMM && inputs.coarseScreenOpeningMM <= 0) {
-      errors.coarseScreenOpeningMM = 'Coarse Screen Opening must be greater than 0';
+    if (inputs.settlingVelocityMPerSec && inputs.settlingVelocityMPerSec <= 0) {
+      errors.settlingVelocityMPerSec = 'Settling velocity of of grit particle must be greater than 0';
     }
-    if (inputs.depthOfWaterInScreenM && inputs.depthOfWaterInScreenM <= 0) {
-      errors.depthOfWaterInScreenM = 'Depth Of Water In Screen must be greater than 0';
+    if (inputs.basinPerformanceIndex && inputs.basinPerformanceIndex <= 0) {
+      errors.basinPerformanceIndex = 'Basin performance Index must be greater than 0';
     }
-    if (inputs.velocityThroughScreenMPerSec && inputs.velocityThroughScreenMPerSec <= 0) {
-      errors.velocityThroughScreenMPerSec = 'Velocity Through Screen must be greater than 0';
+    if (inputs.noOfGritChambersProposed && inputs.noOfGritChambersProposed <= 0) {
+      errors.noOfGritChambersProposed = 'No. of girt chambers proposed must be greater than 0';
     }
-    if (inputs.angleOfInclinationWithTheHorizontalDeg && inputs.angleOfInclinationWithTheHorizontalDeg <= 0) {
-      errors.angleOfInclinationWithTheHorizontalDeg = 'Angle Of Inclination With The Horizontal must be greater than 0';
+    if (inputs.widthOfTheTankM && inputs.widthOfTheTankM <= 0) {
+        errors.widthOfTheTankM = 'Width of the tank must be greater than 0';
+    }
+    if (inputs.depthOfTheTankM && inputs.depthOfTheTankM <= 0) {
+        errors.depthOfTheTankM = 'Depth of the tank must be greater than 0';
+    }
+    if (inputs.particleSizeForCriticalDisplacementVelocityMM && inputs.particleSizeForCriticalDisplacementVelocityMM <= 0) {
+        errors.particleSizeForCriticalDisplacementVelocityMM = 'Particle size for critical displacement velocity must be greater than 0';
     }
     if (inputs.freeBoardM && inputs.freeBoardM <= 0) {
       errors.freeBoardM = 'Free Board must be greater than 0';
     }
-    if (inputs.widthOfEachBarMM && inputs.widthOfEachBarMM <= 0) {
-      errors.widthOfEachBarMM = 'Width Of Each Bar must be greater than 0';
-    }
-    if (inputs.widthOfEachSideWallMM && inputs.widthOfEachSideWallMM <= 0) {
-      errors.widthOfEachSideWallMM = 'Width Of Each Side Wall must be greater than 0';
+    if (inputs.provisionOfSpaceForGritM && inputs.provisionOfSpaceForGritM <= 0) {
+      errors.provisionOfSpaceForGritM = 'Provision of space for grit must be greater than 0';
     }
     return errors;
   };
@@ -112,15 +116,31 @@ const CoarseScreenForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
-            label="Minimum Flow Factor"
-            name="minFlowFactor"
+            label="Desired efficiency of removal of grit particle (%)"
+            name="desiredEfficiency"
             type="number"
-            value={inputs.minFlowFactor}
+            value={inputs.desiredEfficiency}
             onChange={handleChange}
-            error={!!errors.minFlowFactor}
-            helperText={errors.minFlowFactor}
+            error={!!errors.desiredEfficiency}
+            helperText={errors.desiredEfficiency}
+            sx={{
+              '& .MuiInputBase-input': {
+                textAlign: 'center'
+              }
+            }}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            label="Settling velocity of of grit particle (m/sec)"
+            name="settlingVelocityMPerSec"
+            type="number"
+            value={inputs.settlingVelocityMPerSec}
+            onChange={handleChange}
+            error={!!errors.settlingVelocityMPerSec}
+            helperText={errors.settlingVelocityMPerSec}
             sx={{
               '& .MuiInputBase-input': {
                 textAlign: 'center'
@@ -132,13 +152,13 @@ const CoarseScreenForm = ({ onCalculate }) => {
         <Grid item xs={12} sm={6}>
           <TextField
             fullWidth
-            label="Coarse Screen Opening (mm)"
-            name="coarseScreenOpeningMM"
+            label="Basin performance Index"
+            name="basinPerformanceIndex"
             type="number"
-            value={inputs.coarseScreenOpeningMM}
+            value={inputs.basinPerformanceIndex}
             onChange={handleChange}
-            error={!!errors.coarseScreenOpeningMM}
-            helperText={errors.coarseScreenOpeningMM}
+            error={!!errors.basinPerformanceIndex}
+            helperText={errors.basinPerformanceIndex}
             sx={{
               '& .MuiInputBase-input': {
                 textAlign: 'center'
@@ -150,13 +170,13 @@ const CoarseScreenForm = ({ onCalculate }) => {
         <Grid item xs={12} sm={6}>
           <TextField
             fullWidth
-            label="Depth Of Water In Screen (m)"
-            name="depthOfWaterInScreenM"
+            label="No. of girt chambers proposed"
+            name="noOfGritChambersProposed"
             type="number"
-            value={inputs.depthOfWaterInScreenM}
+            value={inputs.noOfGritChambersProposed}
             onChange={handleChange}
-            error={!!errors.depthOfWaterInScreenM}
-            helperText={errors.depthOfWaterInScreenM}
+            error={!!errors.noOfGritChambersProposed}
+            helperText={errors.noOfGritChambersProposed}
             sx={{
               '& .MuiInputBase-input': {
                 textAlign: 'center'
@@ -168,13 +188,13 @@ const CoarseScreenForm = ({ onCalculate }) => {
         <Grid item xs={12} sm={6}>
           <TextField
             fullWidth
-            label="Velocity Through Screen (m/sec)"
-            name="velocityThroughScreenMPerSec"
+            label="Width of the tank (M)"
+            name="widthOfTheTankM"
             type="number"
-            value={inputs.velocityThroughScreenMPerSec}
+            value={inputs.widthOfTheTankM}
             onChange={handleChange}
-            error={!!errors.velocityThroughScreenMPerSec}
-            helperText={errors.velocityThroughScreenMPerSec}
+            error={!!errors.widthOfTheTankM}
+            helperText={errors.widthOfTheTankM}
             sx={{
               '& .MuiInputBase-input': {
                 textAlign: 'center'
@@ -186,13 +206,31 @@ const CoarseScreenForm = ({ onCalculate }) => {
         <Grid item xs={12} sm={6}>
           <TextField
             fullWidth
-            label="Angle Of Inclination With The Horizontal (deg)"
-            name="angleOfInclinationWithTheHorizontalDeg"
+            label="Depth of the tank (M)"
+            name="depthOfTheTankM"
             type="number"
-            value={inputs.angleOfInclinationWithTheHorizontalDeg}
+            value={inputs.depthOfTheTankM}
             onChange={handleChange}
-            error={!!errors.angleOfInclinationWithTheHorizontalDeg}
-            helperText={errors.angleOfInclinationWithTheHorizontalDeg}
+            error={!!errors.depthOfTheTankM}
+            helperText={errors.depthOfTheTankM}
+            sx={{
+              '& .MuiInputBase-input': {
+                textAlign: 'center'
+              }
+            }}
+            InputProps={{ inputProps: { step: 0.01 } }}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            label="Particle size for critical displacement velocity (MM)"
+            name="particleSizeForCriticalDisplacementVelocityMM"
+            type="number"
+            value={inputs.particleSizeForCriticalDisplacementVelocityMM}
+            onChange={handleChange}
+            error={!!errors.particleSizeForCriticalDisplacementVelocityMM}
+            helperText={errors.particleSizeForCriticalDisplacementVelocityMM}
             sx={{
               '& .MuiInputBase-input': {
                 textAlign: 'center'
@@ -219,34 +257,16 @@ const CoarseScreenForm = ({ onCalculate }) => {
             InputProps={{ inputProps: { step: 0.01 } }}
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12}>
           <TextField
             fullWidth
-            label="Width Of Each Bar (mm)"
-            name="widthOfEachBarMM"
+            label="Provision of space for grit (m)"
+            name="provisionOfSpaceForGritM"
             type="number"
-            value={inputs.widthOfEachBarMM}
+            value={inputs.provisionOfSpaceForGritM}
             onChange={handleChange}
-            error={!!errors.widthOfEachBarMM}
-            helperText={errors.widthOfEachBarMM}
-            sx={{
-              '& .MuiInputBase-input': {
-                textAlign: 'center'
-              }
-            }}
-            InputProps={{ inputProps: { step: 0.01 } }}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            fullWidth
-            label="Width Of Each Side Wall (mm)"
-            name="widthOfEachSideWallMM"
-            type="number"
-            value={inputs.widthOfEachSideWallMM}
-            onChange={handleChange}
-            error={!!errors.widthOfEachSideWallMM}
-            helperText={errors.widthOfEachSideWallMM}
+            error={!!errors.provisionOfSpaceForGritM}
+            helperText={errors.provisionOfSpaceForGritM}
             sx={{
               '& .MuiInputBase-input': {
                 textAlign: 'center'
@@ -265,4 +285,4 @@ const CoarseScreenForm = ({ onCalculate }) => {
   );
 };
 
-export default CoarseScreenForm;
+export default GritChamberForm;

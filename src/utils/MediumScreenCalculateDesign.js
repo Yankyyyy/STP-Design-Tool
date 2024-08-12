@@ -17,7 +17,7 @@ export const calculateMediumScreenDesign = (inputs) => {
   const widthOfTheScreenMM = ( parseFloat(numberOfOpenings) * parseFloat(clearOpeningBetweenAdjacentBarsMM) ) + ( parseFloat(numberOfBars) * parseFloat(barsThicknessOfScreenMM) );
   const totalWidthOfChannelMM = parseFloat(widthOfTheScreenMM) + ( 2 * widthOfEachSideWallMM );
   const lengthOfTheScreenM = ( parseFloat(depthOfWaterInScreenM) + parseFloat(freeBoardM) ) / Math.sin(angleOfInclinationWithTheHorizontalRad);
-  const computedLengthOfTheScreenChannelM = 2 * ( 5 * widthOfTheScreenMM ) + ( ( parseFloat(depthOfWaterInScreenM) + parseFloat(freeBoardM) ) * 1000 * ( 1 / Math.tan(angleOfInclinationWithTheHorizontalRad)));
+  const computedLengthOfTheScreenChannelM = ( 10 * widthOfTheScreenMM ) + ( ( parseFloat(depthOfWaterInScreenM) + parseFloat(freeBoardM) ) * 1000 * ( 1 / Math.tan(angleOfInclinationWithTheHorizontalRad)));
   const approachVelocityInTheChannelMPerSec = parseFloat(peakFlowM3PerSec) / ( parseFloat(widthOfTheScreenMM) * parseFloat(depthOfWaterInScreenM) * 0.001 );
   const computedVelocityThroughTheScreenMPerSec = parseFloat(peakFlowM3PerSec) / ( depthOfWaterInScreenM * clearOpeningBetweenAdjacentBarsMM * numberOfOpenings * 0.001);
   const headLossWithoutCloggingM = 0.0729 * ( computedVelocityThroughTheScreenMPerSec**2 - approachVelocityInTheChannelMPerSec**2 );

@@ -6,6 +6,7 @@ import WetWell from './pages/WetWell';
 import CoarseScreen from './pages/CoarseScreen';
 import MediumScreen from './pages/MediumScreen';
 import NavBar from './components/NavBar';
+import GritChamber from './pages/GritChamber';
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/wetwell" element={<WetWell />} />
         <Route path="/coarsescreen" element={<CoarseScreen />} />
         <Route path="/mediumscreen" element={<MediumScreen />} />
+        <Route path="/gritchamber" element={<GritChamber />} />
       </Routes>
     </HashRouter>
   );
