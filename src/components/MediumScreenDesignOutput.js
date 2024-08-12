@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Button, Grid, Paper, Box } from '@mui/material';
 import ExportPDF from '../utils/ExportPDF'
 
-const CoarseScreenDesignOutput = ({ outputs }) => {
+const MediumScreenDesignOutput = ({ outputs }) => {
 
   const handleClick = () => {
     ExportPDF('divToPrint')
@@ -22,7 +22,7 @@ const CoarseScreenDesignOutput = ({ outputs }) => {
       <div id="divToPrint">
         <Box sx={{ mt: 4, mb: 4 }}>
           <Typography variant="h6" align="center" gutterBottom>
-            <b>Coarse Screen Design Outputs</b>
+            <b>Medium Screen Design Outputs</b>
           </Typography>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
@@ -49,42 +49,14 @@ const CoarseScreenDesignOutput = ({ outputs }) => {
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
+                  Peak Flow (MLD): <b>{outputs.peakFlowMLD}</b>
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="body2">
                   Peak Flow (m³/sec): <b>{outputs.peakFlowM3PerSec}</b>
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
-                  Minimum Flow Factor: <b>{outputs.minFlowFactor}</b>
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
-                Minimum Flow (m³/sec): <b>{outputs.minFlowM3PerSec}</b>
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
-                Coarse Screen Opening (mm): <b>{outputs.coarseScreenOpeningMM}</b>
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
-                Depth of water in screen (m): <b>{outputs.depthOfWaterInScreenM}</b>
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
-                Velocity through screen (m/sec): <b>{outputs.velocityThroughScreenMPerSec}</b>
                 </Typography>
               </Paper>
             </Grid>
@@ -98,42 +70,28 @@ const CoarseScreenDesignOutput = ({ outputs }) => {
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Angle of inclination with the horizontal (deg): <b>{outputs.angleOfInclinationWithTheHorizontalDeg}</b>
+                Depth of water in screen (m): <b>{outputs.depthOfWaterInScreenM}</b>
                 </Typography>
               </Paper>
             </Grid>
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Vertical area of the screen (m²): <b>{outputs.verticalAreaOfTheScreenM2}</b>
+                Width of Opening (m): <b>{outputs.widthOfOpeningM}</b>
                 </Typography>
               </Paper>
             </Grid>
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Free Board (m): <b>{outputs.freeBoardM}</b>
+                Clear opening between adjacent bars of screen (mm): <b>{outputs.clearOpeningBetweenAdjacentBarsMM}</b>
                 </Typography>
               </Paper>
             </Grid>
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Length of screen (m): <b>{outputs.lengthOfTheScreenM}</b>
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
-                Vertical width of opening (m): <b>{outputs.verticalWidthOfOpeningM}</b>
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
-                Inclined width of opening (m): <b>{outputs.inclinedWidthOfTheOpeningM}</b>
+                Bars thickness of screen (mm): <b>{outputs.barsThicknessOfScreenMM}</b>
                 </Typography>
               </Paper>
             </Grid>
@@ -154,14 +112,35 @@ const CoarseScreenDesignOutput = ({ outputs }) => {
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Width of each bar (mm): <b>{outputs.widthOfEachBarMM}</b>
+                Width of the screen (mm): <b>{outputs.widthOfTheScreenMM}</b>
                 </Typography>
               </Paper>
             </Grid>
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Total width of screen (mm): <b>{outputs.widthOfTheScreenMM}</b>
+                Angle of inclination with the horizontal (deg): <b>{outputs.angleOfInclinationWithTheHorizontalDeg}</b>
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="body2">
+                Free Board (m): <b>{outputs.freeBoardM}</b>
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="body2">
+                Inclined Length of screen (m): <b>{outputs.lengthOfTheScreenM}</b>
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="body2">
+                Length of medium screen chamber (m): <b>{outputs.computedLengthOfTheScreenChannelM}</b>
                 </Typography>
               </Paper>
             </Grid>
@@ -175,14 +154,7 @@ const CoarseScreenDesignOutput = ({ outputs }) => {
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
-                Total width of channel (mm): <b>{outputs.totalWidthOfChannelMM}</b>
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
-                Size of Coarse Screen channel - Length (m): <b>{outputs.computedLengthOfTheScreenChannelM}</b>
+                Total width of the medium screen chamber (mm): <b>{outputs.totalWidthOfChannelMM}</b>
                 </Typography>
               </Paper>
             </Grid>
@@ -245,4 +217,4 @@ const CoarseScreenDesignOutput = ({ outputs }) => {
   );
 };
 
-export default CoarseScreenDesignOutput;
+export default MediumScreenDesignOutput;

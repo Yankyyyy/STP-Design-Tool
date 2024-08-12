@@ -148,7 +148,7 @@ const WetWellDesignOutput = ({ outputs }) => {
       </div>
       <Typography variant="h4" align="center" gutterBottom>
         <Button type="submit" variant="contained" color="primary" onClick={handleClick} sx={{ mt: 3 }}>
-        Print
+        Download
         </Button>
       </Typography>
     </div>
