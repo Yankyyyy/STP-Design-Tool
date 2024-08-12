@@ -48,9 +48,6 @@ const MediumScreenForm = ({ onCalculate }) => {
     if (!inputs.freeBoardM || inputs.freeBoardM <= 0) {
       errors.freeBoardM = 'Free Board must be greater than 0';
     }
-    if (!inputs.lengthOfMediumScreenChamberM || inputs.lengthOfMediumScreenChamberM <= 0) {
-      errors.lengthOfMediumScreenChamberM = 'Length of medium screen chamber must be greater than 0';
-    }
     if (!inputs.widthOfEachSideWallMM || inputs.widthOfEachSideWallMM <= 0) {
       errors.widthOfEachSideWallMM = 'Width Of Each Side Wall must be greater than 0';
     }
@@ -113,7 +110,7 @@ const MediumScreenForm = ({ onCalculate }) => {
           <TextField
             required
             fullWidth
-            label="Clear opening between adjacent bars of screen (mm)"
+            label="Clear opening between adjacent bars (mm)"
             name="clearOpeningBetweenAdjacentBarsMM"
             type="number"
             value={inputs.clearOpeningBetweenAdjacentBarsMM}

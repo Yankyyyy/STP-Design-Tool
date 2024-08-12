@@ -161,6 +161,13 @@ const MediumScreenDesignOutput = ({ outputs }) => {
             <Grid item xs={12} sm={6}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography variant="body2">
+                Velocity when 50% clogging (m/sec): <b>{outputs.velocityForHalfCloggedScreenMPerSec}</b>
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="body2">
                   Approach velocity in Channel u/s of Screen (m/sec): <b>{outputs.approachVelocityInTheChannelMPerSec}</b>
                 </Typography>
                 <Typography variant="body2" sx={{ color: getColor(approachVelocityCondition) }}>
@@ -185,13 +192,6 @@ const MediumScreenDesignOutput = ({ outputs }) => {
                 </Typography>
                 <Typography variant="body2" sx={{ color: getColor(headLossNoCloggingCondition) }}>
                   {headLossNoCloggingCondition ? 'The head loss No clogging < 0.15 m. Hence OK.' : 'The head loss No clogging ≥ 0.15 m. Hence not OK.'}
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Paper elevation={3} sx={{ p: 2 }}>
-                <Typography variant="body2">
-                Velocity when 50% clogging (m/sec): <b>{outputs.velocityForHalfCloggedScreenMPerSec}</b>
                 </Typography>
               </Paper>
             </Grid>
