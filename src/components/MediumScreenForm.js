@@ -27,28 +27,28 @@ const MediumScreenForm = ({ onCalculate }) => {
 
   const validateInputs = (inputs) => {
     const errors = {};
-    if (!inputs.averageFlowMLD || inputs.averageFlowMLD <= 0) {
+    if (inputs.averageFlowMLD && inputs.averageFlowMLD <= 0) {
       errors.averageFlowMLD = 'Average Flow must be greater than 0';
     }
-    if (!inputs.clearOpeningBetweenAdjacentBarsMM || inputs.clearOpeningBetweenAdjacentBarsMM <= 0) {
+    if (inputs.clearOpeningBetweenAdjacentBarsMM && inputs.clearOpeningBetweenAdjacentBarsMM <= 0) {
       errors.clearOpeningBetweenAdjacentBarsMM = 'Clear opening between adjacent bars of screen must be greater than 0';
     }
-    if (!inputs.barsThicknessOfScreenMM || inputs.barsThicknessOfScreenMM <= 0) {
+    if (inputs.barsThicknessOfScreenMM && inputs.barsThicknessOfScreenMM <= 0) {
       errors.barsThicknessOfScreenMM = 'Bar thickness of screen must be greater than 0';
     }
-    if (!inputs.depthOfWaterInScreenM || inputs.depthOfWaterInScreenM <= 0) {
+    if (inputs.depthOfWaterInScreenM && inputs.depthOfWaterInScreenM <= 0) {
       errors.depthOfWaterInScreenM = 'Depth of water in the screen must be greater than 0';
     }
-    if (!inputs.velocityThroughScreenMPerSec || inputs.velocityThroughScreenMPerSec <= 0) {
+    if (inputs.velocityThroughScreenMPerSec && inputs.velocityThroughScreenMPerSec <= 0) {
       errors.velocityThroughScreenMPerSec = 'Velocity Through Screen must be greater than 0';
     }
-    if (!inputs.angleOfInclinationWithTheHorizontalDeg || inputs.angleOfInclinationWithTheHorizontalDeg <= 0) {
+    if (inputs.angleOfInclinationWithTheHorizontalDeg && inputs.angleOfInclinationWithTheHorizontalDeg <= 0) {
       errors.angleOfInclinationWithTheHorizontalDeg = 'Angle Of Inclination With The Horizontal must be greater than 0';
     }
-    if (!inputs.freeBoardM || inputs.freeBoardM <= 0) {
+    if (inputs.freeBoardM && inputs.freeBoardM <= 0) {
       errors.freeBoardM = 'Free Board must be greater than 0';
     }
-    if (!inputs.widthOfEachSideWallMM || inputs.widthOfEachSideWallMM <= 0) {
+    if (inputs.widthOfEachSideWallMM && inputs.widthOfEachSideWallMM <= 0) {
       errors.widthOfEachSideWallMM = 'Width Of Each Side Wall must be greater than 0';
     }
     return errors;
@@ -108,7 +108,6 @@ const MediumScreenForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
             label="Clear opening between adjacent bars (mm)"
             name="clearOpeningBetweenAdjacentBarsMM"
@@ -126,7 +125,6 @@ const MediumScreenForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
             label="Bar thickness of screen (mm)"
             name="barsThicknessOfScreenMM"
@@ -145,7 +143,6 @@ const MediumScreenForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
             label="Depth of water in the screen (m)"
             name="depthOfWaterInScreenM"
@@ -164,7 +161,6 @@ const MediumScreenForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
             label="Velocity Through Screen (m/sec)"
             name="velocityThroughScreenMPerSec"
@@ -183,7 +179,6 @@ const MediumScreenForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
             label="Angle Of Inclination With The Horizontal (deg)"
             name="angleOfInclinationWithTheHorizontalDeg"
@@ -202,7 +197,6 @@ const MediumScreenForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
             label="Free Board (m)"
             name="freeBoardM"
@@ -221,7 +215,6 @@ const MediumScreenForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={12}>
           <TextField
-            required
             fullWidth
             label="Width Of Each Side Wall (mm)"
             name="widthOfEachSideWallMM"

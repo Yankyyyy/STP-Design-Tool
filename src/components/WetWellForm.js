@@ -27,22 +27,22 @@ const WetWellForm = ({ onCalculate }) => {
 
   const validateInputs = (inputs) => {
     const errors = {};
-    if (!inputs.averageFlowMLD || inputs.averageFlowMLD <= 0) {
+    if (inputs.averageFlowMLD && inputs.averageFlowMLD <= 0) {
       errors.averageFlowMLD = 'Average Flow must be greater than 0';
     }
-    if (!inputs.timeForOnePumpCycle || inputs.timeForOnePumpCycle <= 0) {
+    if (inputs.timeForOnePumpCycle && inputs.timeForOnePumpCycle <= 0) {
       errors.timeForOnePumpCycle = 'Time for one pump cycle must be greater than 0';
     }
-    if (!inputs.minDepthBelowInvertM || inputs.minDepthBelowInvertM <= 0) {
+    if (inputs.minDepthBelowInvertM && inputs.minDepthBelowInvertM <= 0) {
       errors.minDepthBelowInvertM = 'Minimum Depth Below Invert must be greater than 0';
     }
-    if (!inputs.diameterOfInvertPipeMM || inputs.diameterOfInvertPipeMM <= 0) {
+    if (inputs.diameterOfInvertPipeMM && inputs.diameterOfInvertPipeMM <= 0) {
       errors.diameterOfInvertPipeMM = 'Diameter of Invert Pipe must be greater than 0';
     }
-    if (!inputs.suctionHeadM || inputs.suctionHeadM <= 0) {
+    if (inputs.suctionHeadM && inputs.suctionHeadM <= 0) {
       errors.suctionHeadM = 'Suction Head must be greater than 0';
     }
-    if (!inputs.deliveryHeadM || inputs.deliveryHeadM <= 0) {
+    if (inputs.deliveryHeadM && inputs.deliveryHeadM <= 0) {
       errors.deliveryHeadM = 'Delivery Head must be greater than 0';
     }
     return errors;
@@ -102,7 +102,6 @@ const WetWellForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
             label="Minimum Depth Below Invert (m)"
             name="minDepthBelowInvertM"
@@ -120,7 +119,7 @@ const WetWellForm = ({ onCalculate }) => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl fullWidth required>
+          <FormControl fullWidth >
             <InputLabel>Efficiency</InputLabel>
             <Select
               label="Efficiency"
@@ -138,7 +137,6 @@ const WetWellForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
             label="Time for one pump cycle (min)"
             name="timeForOnePumpCycle"
@@ -157,7 +155,6 @@ const WetWellForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
             label="Suction Head (m)"
             name="suctionHeadM"
@@ -176,7 +173,6 @@ const WetWellForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
             label="Delivery Head (m)"
             name="deliveryHeadM"
@@ -195,7 +191,6 @@ const WetWellForm = ({ onCalculate }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             fullWidth
             label="Diameter of Invert Pipe (mm)"
             name="diameterOfInvertPipeMM"
