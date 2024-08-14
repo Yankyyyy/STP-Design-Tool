@@ -12,7 +12,7 @@ export const calculateGritChamberDesign = (inputs) => {
   const criticalDisplacementVelocityMPerSec = 4 * ( (2.65 - 1) * 9.81 * particleSizeForCriticalDisplacementVelocityMM * 0.001 )**0.5;
   const horizontalVelocityInTheChamberMPerSec = parseFloat(peakFlowPerChamberM3PerSec) / ( parseFloat(widthOfTheTankM) * parseFloat(depthOfTheTankM) );
   const lengthOfTheTankM = horizontalVelocityInTheChamberMPerSec * 60;
-  const totalDepthOfTheTankM = parseFloat(depthOfTheTankM) + parseFloat(depthOfTheTankM) + parseFloat(provisionOfSpaceForGritM);
+  const totalDepthOfTheTankM = parseFloat(depthOfTheTankM) + parseFloat(freeBoardM) + parseFloat(provisionOfSpaceForGritM);
   const adoptedLengthOfTheGritChamberM = Math.ceil(lengthOfTheTankM)
   const detentionTimeSec = ( parseFloat(widthOfTheTankM) * parseFloat(freeBoardM) * parseFloat(adoptedLengthOfTheGritChamberM) ) / parseFloat(peakFlowPerChamberM3PerSec);
 
