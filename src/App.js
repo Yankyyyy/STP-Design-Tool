@@ -5,8 +5,10 @@ import HomePage from './pages/Home';
 import WetWell from './pages/WetWell';
 import CoarseScreen from './pages/CoarseScreen';
 import MediumScreen from './pages/MediumScreen';
-import NavBar from './components/NavBar';
 import GritChamber from './pages/GritChamber';
+import AnaerobicPond from './pages/AnaerobicPond';
+import NavBar from './components/NavBar';
+
 
 
 const App = () => {
@@ -19,6 +21,7 @@ const App = () => {
         <Route path="/coarsescreen" element={<CoarseScreen />} />
         <Route path="/mediumscreen" element={<MediumScreen />} />
         <Route path="/gritchamber" element={<GritChamber />} />
+        <Route path="/anaerobicpond" element={<AnaerobicPond />} />
       </Routes>
     </HashRouter>
   );

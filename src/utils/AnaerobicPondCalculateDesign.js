@@ -1,4 +1,4 @@
-export const calculateGritChamberDesign = (inputs) => {
+export const calculateAnaerobicPondDesign = (inputs) => {
     const { averageFlowMLD, peakFactor, noOfAnaerobicPond, InfluentBodMgPerL, meanTemperatureInColdestMonthC,
         depthOfTheTankM, sideSlopeOfThePondM, depthForSludgeM, freeBoardM } = inputs;
 
@@ -29,7 +29,7 @@ export const calculateGritChamberDesign = (inputs) => {
     const detentionTimeDay = parseFloat(volumeOfTheTankGPerM3Day) / parseFloat(averageFlowM3PerDay);
     const adoptedDetentionTimeDay = Math.ceil(parseFloat(detentionTimeDay));
     const adoptedVolumeOfTheTankM3 = parseFloat(adoptedDetentionTimeDay) * parseFloat(averageFlowM3PerDay);
-    const resultingValueOfVolumetricBodLoadingGPerM3Day = ( parseFloat(InfluentBodMgPerL) * parseFloat(detentionTimeDay) ) / parseFloat(adoptedDetentionTimeDay);
+    const resultingValueOfVolumetricBodLoadingGPerM3Day = ( parseFloat(volumetricBodLoadingGPerM3Day) * parseFloat(detentionTimeDay) ) / parseFloat(adoptedDetentionTimeDay);
     const areaOfTheTankAtMidDepthM3 = parseFloat(adoptedVolumeOfTheTankM3) / parseFloat(depthOfTheTankM);
     const midDepthWidthM = Math.sqrt(areaOfTheTankAtMidDepthM3 / 2);
     const midDepthLengthM = 2 * midDepthWidthM;
@@ -38,9 +38,10 @@ export const calculateGritChamberDesign = (inputs) => {
     const totalTopLengthM = parseFloat(midDepthLengthM) + ( 2 * topOfEmbankmentAboveMidDepthM * sideSlopeOfThePondM );
     const totalTopWidthM = parseFloat(midDepthWidthM) + ( 2 * topOfEmbankmentAboveMidDepthM * sideSlopeOfThePondM );
     const areaOfThePondAtTheTopM2 = parseFloat(totalTopLengthM) * parseFloat(totalTopWidthM);
-    const totalBottomLengthM = parseFloat(midDepthLengthM) - ( 2 * topOfEmbankmentAboveMidDepthM * sideSlopeOfThePondM );
-    const totalBottomWidthM = parseFloat(midDepthWidthM) - ( 2 * topOfEmbankmentAboveMidDepthM * sideSlopeOfThePondM );
+    const totalBottomLengthM = parseFloat(midDepthLengthM) - ( 2 * bottomBelowMidDepthM * sideSlopeOfThePondM );
+    const totalBottomWidthM = parseFloat(midDepthWidthM) - ( 2 * bottomBelowMidDepthM * sideSlopeOfThePondM );
     const areaOfThePondAtTheBottomM2 = parseFloat(totalBottomLengthM) * parseFloat(totalBottomWidthM);
+    const overallDepthM = parseFloat(depthOfTheTankM) + parseFloat(freeBoardM) + parseFloat(depthForSludgeM);
 
     return {
       averageFlowMLD,
@@ -51,7 +52,7 @@ export const calculateGritChamberDesign = (inputs) => {
       peakFlowM3PerDay,
       peakFlowM3PerSec: peakFlowM3PerSec.toFixed(3),
       noOfAnaerobicPond,
-      flowHandlingCapacityM3PerSec,
+      flowHandlingCapacityM3PerSec: flowHandlingCapacityM3PerSec.toFixed(3),
       InfluentBodMgPerL,
       meanTemperatureInColdestMonthC,
       volumetricBodLoadingGPerM3Day,
@@ -75,6 +76,7 @@ export const calculateGritChamberDesign = (inputs) => {
       areaOfThePondAtTheTopM2: areaOfThePondAtTheTopM2.toFixed(3),
       totalBottomLengthM: totalBottomLengthM.toFixed(3),
       totalBottomWidthM: totalBottomWidthM.toFixed(3),
-      areaOfThePondAtTheBottomM2: areaOfThePondAtTheBottomM2.toFixed(3)
+      areaOfThePondAtTheBottomM2: areaOfThePondAtTheBottomM2.toFixed(3),
+      overallDepthM
       };
   };

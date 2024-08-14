@@ -247,6 +247,13 @@ const AnaerobicPondDesignOutput = ({ outputs }) => {
                 </Typography>
               </Paper>
             </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="body2">
+                Overall Depth (Including 1 m depth for sludge and 1.0 m for free board) (m): <b>{outputs.overallDepthM}</b>
+                </Typography>
+              </Paper>
+            </Grid>
           </Grid>
         </Box>
       </div>

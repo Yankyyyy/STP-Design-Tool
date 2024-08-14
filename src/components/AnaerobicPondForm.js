@@ -8,7 +8,6 @@ const AnaerobicPondForm = ({ onCalculate }) => {
     peakFactor: '',
     noOfAnaerobicPond: '',
     InfluentBodMgPerL: '',
-    volumetricBodLoadingGPerM3Day: '',
     meanTemperatureInColdestMonthC: '',
     depthOfTheTankM: '',
     sideSlopeOfThePondM: '',
@@ -36,9 +35,6 @@ const AnaerobicPondForm = ({ onCalculate }) => {
     }
     if (inputs.InfluentBodMgPerL && inputs.InfluentBodMgPerL <= 0) {
       errors.InfluentBodMgPerL = 'Influent BOD must be greater than 0';
-    }
-    if (inputs.volumetricBodLoadingGPerM3Day && inputs.volumetricBodLoadingGPerM3Day <= 0) {
-      errors.volumetricBodLoadingGPerM3Day = 'Volumetric BOD loading must be greater than 0';
     }
     if (inputs.depthOfTheTankM && inputs.depthOfTheTankM <= 0) {
         errors.depthOfTheTankM = 'Depth of the tank must be greater than 0';
@@ -145,24 +141,6 @@ const AnaerobicPondForm = ({ onCalculate }) => {
         <Grid item xs={12} sm={6}>
           <TextField
             fullWidth
-            label="Volumetric BOD loading (g/m³.day)"
-            name="volumetricBodLoadingGPerM3Day"
-            type="number"
-            value={inputs.volumetricBodLoadingGPerM3Day}
-            onChange={handleChange}
-            error={!!errors.volumetricBodLoadingGPerM3Day}
-            helperText={errors.volumetricBodLoadingGPerM3Day}
-            sx={{
-              '& .MuiInputBase-input': {
-                textAlign: 'center'
-              }
-            }}
-            InputProps={{ inputProps: { step: 0.01 } }}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            fullWidth
             label="Mean temperature in coldest month (C)"
             name="meanTemperatureInColdestMonthC"
             type="number"
@@ -197,7 +175,7 @@ const AnaerobicPondForm = ({ onCalculate }) => {
         <Grid item xs={12} sm={6}>
           <TextField
             fullWidth
-            label="Side slope of pond (M)"
+            label="Side slope of pond (m)"
             name="sideSlopeOfThePondM"
             type="number"
             value={inputs.sideSlopeOfThePondM}
@@ -230,7 +208,7 @@ const AnaerobicPondForm = ({ onCalculate }) => {
             InputProps={{ inputProps: { step: 0.01 } }}
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12}>
           <TextField
             fullWidth
             label="Depth for sludge accumulation in the tank (m)"
