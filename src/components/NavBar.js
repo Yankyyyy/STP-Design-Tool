@@ -20,7 +20,7 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#3f51b5', mb: 2 }}>
+    <AppBar position="static" sx={{ backgroundColor: '#3f51b5', mb: 0.7 }}>
       <Toolbar>
         <IconButton edge="start" color="inherit" aria-label="home" component={Link} to="/">
           <HomeIcon />
