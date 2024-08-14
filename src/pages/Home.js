@@ -8,14 +8,14 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const Home = () => {
   return (
-    <Container>
+    <Container sx={{ minHeight: '100vh', py: 2 }}>
       <Box my={4} textAlign="center">
         <Typography variant="h3" component="h1" gutterBottom sx={{ color: '#1976d2' }}>
           Design of STPs for Small and Medium Towns
         </Typography>
       </Box>
 
-      <Card sx={{ my: 4, backgroundColor: '#e3f2fd' }}>
+      <Card sx={{ my: 4, backgroundColor: '#a3d1ff', boxShadow: '0 8px 16px rgba(0,0,0,0.1)' }}>
         <CardContent>
           <Typography paragraph>
             Welcome to the Design of Sewage Treatment Plants (STPs) for Small and Medium Towns. This web application platform provides comprehensive guidance and design calculations on the implementation and optimization of wastewater treatment technologies tailored for small to medium-sized urban areas.
@@ -24,7 +24,7 @@ const Home = () => {
       </Card>
 
       <Box my={4} textAlign="justify">
-        <Card sx={{ my: 4, backgroundColor: '#e1bee7' }}>
+        <Card sx={{ my: 4, backgroundColor: '#e1bee7', boxShadow: '0 8px 16px rgba(0,0,0,0.1)' }}>
           <CardHeader
             title={
               <Typography variant="h5" component="h2" align="center" sx={{ color: '#8e24aa' }}>
@@ -47,10 +47,10 @@ const Home = () => {
       </Box>
 
       <Box my={4} textAlign="justify">
-        <Card sx={{ my: 4, backgroundColor: '#c8e6c9' }}>
+        <Card sx={{ my: 4, backgroundColor: '#b3ffb5' }}>
           <CardHeader
             title={
-              <Typography variant="h5" component="h2" align="center" sx={{ color: '#388e3c' }}>
+              <Typography variant="h5" component="h2" align="center" sx={{ color: '#2d8030' }}>
                 Used Water (Influent) Parameters
               </Typography>
             }
